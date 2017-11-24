@@ -35,7 +35,7 @@ namespace Modelo
         Decimal		PRECIO3;
         String      FOTO;
         String      OBSERVACIONES;
-
+        string test;
         public Int32 id
         {
             get { return this.ID; }
