@@ -35,7 +35,7 @@ namespace Modelo
         Decimal		PRECIO3;
         String      FOTO;
         String      OBSERVACIONES;
-        string test;
+
         public Int32 id
         {
             get { return this.ID; }
@@ -136,6 +136,21 @@ namespace Modelo
     public static class metodos_PRODUCTOS
     {
 
+        public static void insertarPRODUCTOS(int idProd,decimal precio,int cantidad)
+        {
+            String Qry = @"INSERT INTO compras(idProd,precio,cantidad)
+            values(@idProd,@precio,@cantidad)";
+            BaseDatos d = new BaseDatos();
+            d.Conectar();
+            d.CrearComando(Qry);
+            d.AsignarParametroEntero("@idProd", idProd);
+            d.AsignarParametroDecimal("@precio", precio);
+            d.AsignarParametroEntero("@cantidad", cantidad);
+
+
+            d.EjecutarComando();
+        }
+
         public static void insertarPRODUCTOS(Int32 id, String clave, String descripcion, String linea, String unidadentrada, Int32 minimo, Int32 maximo, String moneda, Int32 existencias, Decimal costo, Int32 cveunidad, Decimal precio1, Decimal precio2, Decimal precio3, string foto, string observaciones )
         {
             String Qry =@"INSERT INTO PRODUCTOS(id,clave,descripcion,linea,unidadEntrada,minimo,maximo,moneda,existencias,costo,cveUnidad,precio1,precio2,precio3,foto,observaciones)
@@ -162,6 +177,21 @@ namespace Modelo
 
             d.EjecutarComando();
         }
+
+        public static void actualizarPRODUCTOS(Int32 id,  Decimal costo, Int32 existencia)
+        {
+            String Qry = "UPDATE PRODUCTOS SET  existencias = existencias + @existencias, costo = @costo  WHERE ID=@id";
+            BaseDatos d = new BaseDatos();
+            d.Conectar();
+            d.CrearComando(Qry);
+            d.AsignarParametroEntero("@id", id);
+            d.AsignarParametroEntero("@existencias", existencia);
+            d.AsignarParametroDecimal("@costo", costo);
+
+            d.EjecutarComando();
+        }
+
+
 
         public static void actualizarPRODUCTOS(Int32 id, String clave, String descripcion, String linea, String unidadentrada, Int32 minimo, Int32 maximo, String moneda, Int32 existencias, Decimal costo, Int32 cveunidad, Decimal precio1, Decimal precio2, Decimal precio3, string foto, String observaciones)
         {
@@ -201,6 +231,39 @@ namespace Modelo
             d.EjecutarComando();
             d.Desconectar();
         }
+
+        public static PRODUCTOS seleccionarPRODUCTOS(string id_producto)
+        {
+            PRODUCTOS poducto = new PRODUCTOS();
+            String Qry = @"SELECT id, clave, descripcion, linea, unidadEntrada, minimo, maximo, moneda, existencias, costo, cveUnidad, precio1, precio2, precio3, foto, observaciones FROM   PRODUCTOS where clave=@id";
+            BaseDatos d = new BaseDatos();
+            d.Conectar();
+            d.CrearComando(Qry);
+            d.AsignarParametroCadena("@id", id_producto);
+            DbDataReader datosItems = d.EjecutarConsulta();
+            while (datosItems.Read())
+            {
+                poducto.id = Convert.ToInt32(datosItems["id"].ToString());
+                poducto.clave = datosItems["clave"].ToString();
+                poducto.descripcion = datosItems["descripcion"].ToString();
+                poducto.linea = datosItems["linea"].ToString();
+                poducto.unidadentrada = datosItems["unidadentrada"].ToString();
+                poducto.minimo = Convert.ToInt32(datosItems["minimo"].ToString());
+                poducto.maximo = Convert.ToInt32(datosItems["maximo"].ToString());
+                poducto.moneda = datosItems["moneda"].ToString();
+                poducto.existencias = Convert.ToInt32(datosItems["existencias"].ToString());
+                poducto.costo = Convert.ToDecimal(datosItems["costo"].ToString());
+                poducto.cveunidad = Convert.ToInt32(datosItems["cveunidad"].ToString());
+                poducto.precio1 = Convert.ToDecimal(datosItems["precio1"].ToString());
+                poducto.precio2 = Convert.ToDecimal(datosItems["precio2"].ToString());
+                poducto.precio3 = Convert.ToDecimal(datosItems["precio3"].ToString());
+                poducto.foto = datosItems["foto"].ToString();
+                poducto.observaciones = datosItems["observaciones"].ToString();
+            }
+            datosItems.Close();
+            return poducto;
+        }
+
         public static List<PRODUCTOS>  seleccionarPRODUCTOS( )
         {
             List<PRODUCTOS> listPRODUCTOS = new List<PRODUCTOS>();

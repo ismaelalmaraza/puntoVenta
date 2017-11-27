@@ -42,6 +42,7 @@
     <Compile Include="CLIENTES.cs" />
     <Compile Include="PRODUCTOS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PROVEEDORES.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj">

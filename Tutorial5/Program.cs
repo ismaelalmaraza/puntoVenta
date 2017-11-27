@@ -18,7 +18,7 @@ namespace Tutorial5
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmNvoProducto());
+            Application.Run(new MenuPrincipal());
         }
     }
 }
