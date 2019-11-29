@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DCE05.Ejemplos.EstrellaUno.AccesoDatos {
+namespace AccesoDatos {
 
     /// <summary>
     /// Representa un error de acceso a la base de datos.

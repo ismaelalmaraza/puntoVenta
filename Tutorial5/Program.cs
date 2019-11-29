@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Tutorial5
+namespace Vendo
 {
     static class Program
     {
@@ -18,7 +18,7 @@ namespace Tutorial5
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MenuPrincipal());
+            Application.Run(new splash());
         }
     }
 }

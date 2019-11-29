@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="if_contact-new_23203" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_contact-new_23203.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cfc-splash-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cfc-splash-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondo-de-lienzo-blanco_1053-239" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo-de-lienzo-blanco_1053-239.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clientes2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clientes2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_User Orange_41329" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_User Orange_41329.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barra2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barra2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_save_46830" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_save_46830.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue-757258_960_720" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue-757258_960_720.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_registrar2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_registrar2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1057b27fa73e6f0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1057b27fa73e6f0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pie.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_diagram_v2-17_37137" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_diagram_v2-17_37137.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_cog_edit_35876" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_cog_edit_35876.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondo-de-textura-de-lino-gris_1053-253" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo-de-textura-de-lino-gris_1053-253.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barra1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barra1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_cancel_46786 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_cancel_46786 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cuadro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cuadro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_save_46830 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_save_46830 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barra21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barra21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_search_46834" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_search_46834.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Blue-splash_-_Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Blue-splash_-_Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_icon-45-note-list_315167" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_icon-45-note-list_315167.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_box_61760" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_box_61760.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cabecera" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cabecera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_shopping_basket_2_40839" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_shopping_basket_2_40839.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_advantage_sale_1034365" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_advantage_sale_1034365.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_bookmark_46780" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_bookmark_46780.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barra4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barra4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_registrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_registrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barra31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barra31.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_13_setting_configure_repair_support_optimization_google_2109119" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\conf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sin título" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sin título.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_application-vnd.ms-excel_24744" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_application-vnd.ms-excel_24744.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_edit-notes_46798" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_edit-notes_46798.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_modificar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_modificar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="botonera" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\botonera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barra3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barra3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_sale1_91828" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_sale1_91828.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="images1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_Sales-by-Payment-Method-rep_49616 (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_Sales-by-Payment-Method-rep_49616 (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="59224192-cierre-de-color-azul-arrugado-color-de-fondo-textura-de-cuero" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\59224192-cierre-de-color-azul-arrugado-color-de-fondo-textura-de-cuero.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_add-notes_46774" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_add-notes_46774.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barra.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clientes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clientes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barra5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barra5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_floppy_285657" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_floppy_285657.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cfc-splash-21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cfc-splash-21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ventas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ventas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_gtk-dialog-error_48094" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_gtk-dialog-error_48094.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Blue-splash_-_Copy1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Blue-splash_-_Copy1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_trash_46839" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_trash_46839.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_Sales-by-Payment-Method-rep_49616 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_Sales-by-Payment-Method-rep_49616 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_agt_family-off_3815" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_agt_family-off_3815.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="proveedor2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\proveedor2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="proveedor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\proveedor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="compras2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\compras2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_cancel_46786" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_cancel_46786.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_gtk-go-down_48102" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_gtk-go-down_48102.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_delete-notes_46793" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_delete-notes_46793.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_provider_45069" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_provider_45069.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="compras" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\compras.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_eliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_eliminar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue-patterns-textures-1920x1200-wallpaper-640903" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue-patterns-textures-1920x1200-wallpaper-640903.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ventas1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ventas1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ventas2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ventas2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_gtk-go-back-rtl_48101" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_gtk-go-back-rtl_48101.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_forms_sec" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg_forms_sec.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logoDRi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logoDRi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="skin_2b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\skin_2b.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_kservices_18068" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_kservices_18068.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

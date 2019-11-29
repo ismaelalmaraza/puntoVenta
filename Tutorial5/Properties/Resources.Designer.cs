@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tutorial5.Properties {
+namespace Vendo.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Tutorial5.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Tutorial5.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Vendo.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,16 @@ namespace Tutorial5.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1057b27fa73e6f0 {
+            get {
+                object obj = ResourceManager.GetObject("1057b27fa73e6f0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -183,6 +193,26 @@ namespace Tutorial5.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Blue_splash___Copy {
+            get {
+                object obj = ResourceManager.GetObject("Blue-splash_-_Copy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Blue_splash___Copy1 {
+            get {
+                object obj = ResourceManager.GetObject("Blue-splash_-_Copy1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap botonera {
             get {
                 object obj = ResourceManager.GetObject("botonera", resourceCulture);
@@ -256,6 +286,26 @@ namespace Tutorial5.Properties {
         internal static System.Drawing.Bitmap cabecera {
             get {
                 object obj = ResourceManager.GetObject("cabecera", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cfc_splash_2 {
+            get {
+                object obj = ResourceManager.GetObject("cfc-splash-2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cfc_splash_21 {
+            get {
+                object obj = ResourceManager.GetObject("cfc-splash-21", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -383,6 +433,16 @@ namespace Tutorial5.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap if_application_vnd_ms_excel_24744 {
+            get {
+                object obj = ResourceManager.GetObject("if_application-vnd.ms-excel_24744", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap if_bookmark_46780 {
             get {
                 object obj = ResourceManager.GetObject("if_bookmark_46780", resourceCulture);
@@ -476,6 +536,56 @@ namespace Tutorial5.Properties {
         internal static System.Drawing.Bitmap if_floppy_285657 {
             get {
                 object obj = ResourceManager.GetObject("if_floppy_285657", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap if_gtk_dialog_error_48094 {
+            get {
+                object obj = ResourceManager.GetObject("if_gtk-dialog-error_48094", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap if_gtk_go_back_rtl_48101 {
+            get {
+                object obj = ResourceManager.GetObject("if_gtk-go-back-rtl_48101", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap if_gtk_go_down_48102 {
+            get {
+                object obj = ResourceManager.GetObject("if_gtk-go-down_48102", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap if_icon_45_note_list_315167 {
+            get {
+                object obj = ResourceManager.GetObject("if_icon-45-note-list_315167", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap if_kservices_18068 {
+            get {
+                object obj = ResourceManager.GetObject("if_kservices_18068", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -603,6 +713,16 @@ namespace Tutorial5.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logoDRi {
+            get {
+                object obj = ResourceManager.GetObject("logoDRi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pie {
             get {
                 object obj = ResourceManager.GetObject("pie", resourceCulture);
@@ -626,6 +746,16 @@ namespace Tutorial5.Properties {
         internal static System.Drawing.Bitmap proveedor2 {
             get {
                 object obj = ResourceManager.GetObject("proveedor2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sin_título {
+            get {
+                object obj = ResourceManager.GetObject("Sin título", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

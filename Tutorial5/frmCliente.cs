@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Tutorial5
+namespace Vendo
 {
     public partial class frmCliente : Form
     {
@@ -76,12 +76,12 @@ namespace Tutorial5
                 if (esNuevo)
                 {
                     metodos_CLIENTES.insertarCLIENTES(0, txtNombre.Text.Trim(), txtDireccion.Text.Trim(), txtCP.Text.Trim(),
-                        txtTelefono.Text.Trim(), txtContacto.Text.Trim(), Convert.ToDouble(txtCredito.Text), txtRFC.Text);
+                        txtTelefono.Text.Trim(), txtContacto.Text.Trim(), Convert.ToDouble(txtCredito.Text), txtRFC.Text, cmbPrecio.Text, txtEmail.Text);
                 }
                 else
                 {
                     metodos_CLIENTES.actualizarCLIENTES(Convert.ToInt32(lblCveCte.Text), txtNombre.Text.Trim(), txtDireccion.Text.Trim(), txtCP.Text.Trim(),
-    txtTelefono.Text.Trim(), txtContacto.Text.Trim(), Convert.ToInt32(txtCredito.Text), txtRFC.Text);
+    txtTelefono.Text.Trim(), txtContacto.Text.Trim(), Convert.ToInt32(txtCredito.Text), txtRFC.Text, cmbPrecio.Text, txtEmail.Text);
                 }
                 dgClientes.DataSource = metodos_CLIENTES.seleccionarCLIENTES();
             }
@@ -89,6 +89,7 @@ namespace Tutorial5
 
         private void habilitarTextBox(bool habil)
         {
+            cmbPrecio.Enabled = habil;
             foreach (Control c in this.Controls)
             {
                 if (c is TextBox)
@@ -114,7 +115,7 @@ namespace Tutorial5
             if (MessageBox.Show("¿Esta seguro de eliminar el cliente " + txtNombre.Text + "?", "Eliminar...", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 habilitarTextBox(false);
-                metodos_CLIENTES.elimiarPRODUCTOS(Convert.ToInt32(lblCveCte.Text));
+                metodos_CLIENTES.elimiarCLIENTES(Convert.ToInt32(lblCveCte.Text));
                 dgClientes.DataSource = metodos_CLIENTES.seleccionarCLIENTES();
             }
         }
@@ -155,14 +156,28 @@ namespace Tutorial5
 
         private void dgClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtNombre.Text          = this.dgClientes.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtCP.Text              = this.dgClientes.Rows[e.RowIndex].Cells[3].Value.ToString();
-            txtCredito.Text         = this.dgClientes.Rows[e.RowIndex].Cells[6].Value.ToString();
-            txtDireccion.Text       = this.dgClientes.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtRFC.Text             = this.dgClientes.Rows[e.RowIndex].Cells[7].Value.ToString();
-            txtTelefono.Text        = this.dgClientes.Rows[e.RowIndex].Cells[4].Value.ToString();
-            txtContacto.Text        = this.dgClientes.Rows[e.RowIndex].Cells[5].Value.ToString();
-            lblCveCte.Text          = this.dgClientes.Rows[e.RowIndex].Cells[0].Value.ToString().PadLeft(5,'0');
+            try
+            {
+                txtEmail.Text       =   this.dgClientes.Rows[e.RowIndex].Cells[0].Value.ToString();
+                cmbPrecio.Text      =   this.dgClientes.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtNombre.Text      =   this.dgClientes.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtCP.Text          =   this.dgClientes.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtCredito.Text     =   this.dgClientes.Rows[e.RowIndex].Cells[8].Value.ToString();
+                txtDireccion.Text   =   this.dgClientes.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtRFC.Text         =   this.dgClientes.Rows[e.RowIndex].Cells[9].Value.ToString();
+                txtTelefono.Text    =   this.dgClientes.Rows[e.RowIndex].Cells[6].Value.ToString();
+                txtContacto.Text    =   this.dgClientes.Rows[e.RowIndex].Cells[7].Value.ToString();
+                lblCveCte.Text      =   this.dgClientes.Rows[e.RowIndex].Cells[1].Value.ToString().PadLeft(5, '0');
+
+            }catch(Exception err)
+            {
+
+            }
+        }
+
+        private void dgClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

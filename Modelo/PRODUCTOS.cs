@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Common;
-using DCE05.Ejemplos.EstrellaUno.AccesoDatos;
+using AccesoDatos;
 namespace Modelo
 {
                             
@@ -35,6 +35,23 @@ namespace Modelo
         Decimal		PRECIO3;
         String      FOTO;
         String      OBSERVACIONES;
+
+        String      MARCA;
+        Int32       ID_PROVEEDOR;
+        String      ClaveUnidad;
+        String      ClaveServicio;
+
+        public String marca
+        {
+            get { return this.MARCA; }
+            set { this.MARCA = value; }
+        }
+
+        public Int32 id_proveedor
+        {
+            get { return this.ID_PROVEEDOR; }
+            set { this.ID_PROVEEDOR = value; }
+        }
 
         public Int32 id
         {
@@ -132,14 +149,47 @@ namespace Modelo
             set { this.OBSERVACIONES = value;}
         }
 
+        public string claveUnidad
+        {
+            get { return this.ClaveUnidad; }
+            set { this.ClaveUnidad = value; }
+        }
+
+        public string claveServicio
+        {
+            get { return this.ClaveServicio; }
+            set { this.ClaveServicio = value; }
+        }
+
     }
     public static class metodos_PRODUCTOS
     {
 
-        public static void insertarPRODUCTOS(int idProd,decimal precio,int cantidad)
+        public static bool existeFactura( String FACTURA)
         {
-            String Qry = @"INSERT INTO compras(idProd,precio,cantidad)
-            values(@idProd,@precio,@cantidad)";
+            bool existe = false;
+            String Qry = @"select * from compras where FACTURA=@FACTURA";
+
+            BaseDatos d = new BaseDatos();
+            d.Conectar();
+            d.CrearComando(Qry);
+            d.AsignarParametroCadena("@FACTURA", FACTURA);
+
+            DbDataReader datosItems = d.EjecutarConsulta();
+            while (datosItems.Read())
+            {
+                existe = true;
+            }
+            datosItems.Close();
+            d.Desconectar();
+            d.Desconectar();
+            return existe;
+        }
+
+        public static void insertarPRODUCTOS(int idProd,decimal precio,int cantidad,String proveedor,int diasCredito,String FACTURA, string emision, decimal descuento, decimal total)
+        {
+            String Qry = @"INSERT INTO compras(idProd,precio,cantidad,proveedor,diasCredito,FACTURA,emision,descuento,total)
+            values(@idProd,@precio,@cantidad,@proveedor,@diasCredito,@FACTURA,@emision,@descuento,@total)";
             BaseDatos d = new BaseDatos();
             d.Conectar();
             d.CrearComando(Qry);
@@ -147,18 +197,27 @@ namespace Modelo
             d.AsignarParametroDecimal("@precio", precio);
             d.AsignarParametroEntero("@cantidad", cantidad);
 
-
+            d.AsignarParametroCadena("@proveedor", proveedor);
+            d.AsignarParametroEntero("@diasCredito", diasCredito);
+            d.AsignarParametroCadena("@FACTURA", FACTURA);
+            d.AsignarParametroCadena("@emision", emision);
+            d.AsignarParametroDecimal("@descuento", descuento);
+            d.AsignarParametroDecimal("@total", total);
             d.EjecutarComando();
+
+            d.Desconectar();
+
         }
 
-        public static void insertarPRODUCTOS(Int32 id, String clave, String descripcion, String linea, String unidadentrada, Int32 minimo, Int32 maximo, String moneda, Int32 existencias, Decimal costo, Int32 cveunidad, Decimal precio1, Decimal precio2, Decimal precio3, string foto, string observaciones )
+        public static void insertarPRODUCTOS(Int32 id, String clave, String descripcion, String linea, String unidadentrada, Int32 minimo, Int32 maximo, String moneda, Int32 existencias, Decimal costo, Int32 cveunidad, Decimal precio1, Decimal precio2, Decimal precio3, string foto, string observaciones, int fk_proveedor, String marca, String ClaveUnidad, String ClaveServicio, String foliofactura, String emision, String diascredito)
         {
-            String Qry =@"INSERT INTO PRODUCTOS(id,clave,descripcion,linea,unidadEntrada,minimo,maximo,moneda,existencias,costo,cveUnidad,precio1,precio2,precio3,foto,observaciones)
-            values(@id,@clave,@descripcion,@linea,@unidadentrada,@minimo,@maximo,@moneda,@existencias,@costo,@cveunidad,@precio1,@precio2,@precio3,@foto,@observaciones)";
+            String Qry = @"INSERT INTO productos(clave, descripcion, linea, unidadEntrada, minimo, maximo, moneda, existencias, costo, cveUnidad, precio1, precio2, precio3, foto, observaciones, fk_proveedor, marca, ClaveUnidad, ClaveServicio,foliofactura,emision,diascredito)
+                                         values(@clave,@descripcion,@linea,@unidadentrada,@minimo,@maximo,@moneda,@existencias,@costo,@cveunidad,@precio1,@precio2,@precio3,@foto,@observaciones,@fk_proveedor,@marca,@ClaveUnidad, @ClaveServicio,@foliofactura,@emision,@diascredito)";
             BaseDatos d = new BaseDatos();
             d.Conectar();
             d.CrearComando(Qry);
-		    d.AsignarParametroEntero("@id",id);
+		    //d.AsignarParametroEntero("@id",id);
+            d.AsignarParametroEntero("@fk_proveedor", fk_proveedor);
 		    d.AsignarParametroCadena("@clave",clave);
 		    d.AsignarParametroCadena("@descripcion",descripcion);
 		    d.AsignarParametroCadena("@linea",linea);
@@ -174,13 +233,38 @@ namespace Modelo
 		    d.AsignarParametroDecimal("@precio3",precio3);
             d.AsignarParametroCadena("@foto", foto);
             d.AsignarParametroCadena("@observaciones", observaciones);
+            d.AsignarParametroCadena("@marca", marca);
+
+            d.AsignarParametroCadena("@ClaveUnidad", ClaveUnidad);
+            d.AsignarParametroCadena("@ClaveServicio", ClaveServicio);
+
+            d.AsignarParametroCadena("@foliofactura", foliofactura);
+            d.AsignarParametroCadena("@emision", emision);
+            d.AsignarParametroCadena("@diascredito", diascredito);
 
             d.EjecutarComando();
+            d.Desconectar();
+            
+
+        }
+
+        public static void restarPRODUCTOS(Int32 id,  Int32 existencia)
+        {
+            String Qry = "UPDATE productos SET  existencias = existencias - @existencias  WHERE ID=@id";
+            BaseDatos d = new BaseDatos();
+            d.Conectar();
+            d.CrearComando(Qry);
+            d.AsignarParametroEntero("@id", id);
+            d.AsignarParametroEntero("@existencias", existencia);
+
+            d.EjecutarComando();
+            d.Desconectar();
+
         }
 
         public static void actualizarPRODUCTOS(Int32 id,  Decimal costo, Int32 existencia)
         {
-            String Qry = "UPDATE PRODUCTOS SET  existencias = existencias + @existencias, costo = @costo  WHERE ID=@id";
+            String Qry = "UPDATE productos SET  existencias = existencias + @existencias, costo = @costo  WHERE ID=@id";
             BaseDatos d = new BaseDatos();
             d.Conectar();
             d.CrearComando(Qry);
@@ -189,17 +273,54 @@ namespace Modelo
             d.AsignarParametroDecimal("@costo", costo);
 
             d.EjecutarComando();
+            d.Desconectar();
+
         }
 
-
-
-        public static void actualizarPRODUCTOS(Int32 id, String clave, String descripcion, String linea, String unidadentrada, Int32 minimo, Int32 maximo, String moneda, Int32 existencias, Decimal costo, Int32 cveunidad, Decimal precio1, Decimal precio2, Decimal precio3, string foto, String observaciones)
+        public static void actualizarPRODUCTOSMasiva(Int32 id, String clave, String descripcion, String linea, String unidadentrada, Int32 minimo, Int32 maximo, String moneda, Int32 existencias, Decimal costo, Int32 cveunidad, Decimal precio1, Decimal precio2, Decimal precio3, string foto, String observaciones, int fk_proveedor, String marca, String ClaveUnidad, String ClaveServicio, String foliofactura, String emision, String diascredito)
         {
-            String Qry ="UPDATE PRODUCTOS SET clave = @clave, descripcion = @descripcion, linea = @linea, unidadEntrada = @unidadentrada, minimo = @minimo, maximo = @maximo, moneda = @moneda, existencias = @existencias, costo = @costo, cveUnidad = @cveunidad, precio1 = @precio1, precio2 = @precio2, precio3 = @precio3, foto = @foto, observaciones = @observaciones WHERE ID=@id";
+            String Qry = @"UPDATE productos SET descripcion = @descripcion, linea = @linea, unidadEntrada = @unidadentrada, minimo = @minimo, maximo = @maximo, moneda = @moneda, existencias = existencias + @existencias, costo = @costo, cveUnidad = @cveunidad, precio1 = @precio1, precio2 = @precio2, precio3 = @precio3, foto = @foto, observaciones = @observaciones,fk_proveedor=@fk_proveedor,marca=@marca , ClaveUnidad=@ClaveUnidad, ClaveServicio=@ClaveServicio,foliofactura=@foliofactura,emision=@emision,diascredito=@diascredito
+                WHERE clave=@clave";
+            BaseDatos d = new BaseDatos();
+            d.Conectar();
+            d.CrearComando(Qry);
+            //d.AsignarParametroEntero("@id", id);
+            d.AsignarParametroEntero("@fk_proveedor", fk_proveedor);
+            d.AsignarParametroCadena("@clave", clave);
+            d.AsignarParametroCadena("@descripcion", descripcion);
+            d.AsignarParametroCadena("@linea", linea);
+            d.AsignarParametroCadena("@unidadentrada", unidadentrada);
+            d.AsignarParametroEntero("@minimo", minimo);
+            d.AsignarParametroEntero("@maximo", maximo);
+            d.AsignarParametroCadena("@moneda", moneda);
+            d.AsignarParametroEntero("@existencias", existencias);
+            d.AsignarParametroDecimal("@costo", costo);
+            d.AsignarParametroEntero("@cveunidad", cveunidad);
+            d.AsignarParametroDecimal("@precio1", precio1);
+            d.AsignarParametroDecimal("@precio2", precio2);
+            d.AsignarParametroDecimal("@precio3", precio3);
+            d.AsignarParametroCadena("@foto", foto);
+            d.AsignarParametroCadena("@observaciones", observaciones);
+            d.AsignarParametroCadena("@marca", marca);
+            d.AsignarParametroCadena("@ClaveUnidad", ClaveUnidad);
+            d.AsignarParametroCadena("@ClaveServicio", ClaveServicio);
+            d.AsignarParametroCadena("@foliofactura", foliofactura);
+            d.AsignarParametroCadena("@emision", emision);
+            d.AsignarParametroCadena("@diascredito", diascredito);
+            d.EjecutarComando();
+            d.Desconectar();
+
+        }
+
+        public static void actualizarPRODUCTOS(Int32 id, String clave, String descripcion, String linea, String unidadentrada, Int32 minimo, Int32 maximo, String moneda, Int32 existencias, Decimal costo, Int32 cveunidad, Decimal precio1, Decimal precio2, Decimal precio3, string foto, String observaciones, int fk_proveedor, String marca, String ClaveUnidad, String ClaveServicio, String foliofactura, String emision, String diascredito)
+        {
+            String Qry = @"UPDATE productos SET clave = @clave, descripcion = @descripcion, linea = @linea, unidadEntrada = @unidadentrada, minimo = @minimo, maximo = @maximo, moneda = @moneda, existencias = @existencias, costo = @costo, cveUnidad = @cveunidad, precio1 = @precio1, precio2 = @precio2, precio3 = @precio3, foto = @foto, observaciones = @observaciones,fk_proveedor=@fk_proveedor,marca=@marca , ClaveUnidad=@ClaveUnidad, ClaveServicio=@ClaveServicio,foliofactura=@foliofactura,emision=@emision,diascredito=@diascredito
+                WHERE ID=@id";
             BaseDatos d = new BaseDatos();
             d.Conectar();
             d.CrearComando(Qry);
 		    d.AsignarParametroEntero("@id",id);
+            d.AsignarParametroEntero("@fk_proveedor", fk_proveedor);
 		    d.AsignarParametroCadena("@clave",clave);
 		    d.AsignarParametroCadena("@descripcion",descripcion);
 		    d.AsignarParametroCadena("@linea",linea);
@@ -215,13 +336,20 @@ namespace Modelo
 		    d.AsignarParametroDecimal("@precio3",precio3);
             d.AsignarParametroCadena("@foto", foto);
             d.AsignarParametroCadena("@observaciones", observaciones);
-
+            d.AsignarParametroCadena("@marca", marca);
+            d.AsignarParametroCadena("@ClaveUnidad", ClaveUnidad);
+            d.AsignarParametroCadena("@ClaveServicio", ClaveServicio);
+            d.AsignarParametroCadena("@foliofactura", foliofactura);
+            d.AsignarParametroCadena("@emision", emision);
+            d.AsignarParametroCadena("@diascredito", diascredito);
             d.EjecutarComando();
+            d.Desconectar();
+
         }
 
         public static void elimiarPRODUCTOS(Int32 id)
         {
-            String Qry = @"delete FROM PRODUCTOS where id=@id";
+            String Qry = @"delete FROM productos where id=@id";
             
             BaseDatos d = new BaseDatos();
 
@@ -232,18 +360,42 @@ namespace Modelo
             d.Desconectar();
         }
 
+        public static decimal seleccionarTipoCambio()
+        {
+            decimal tc = 0;
+            String Qry = @"SELECT tc from tipoCambio where id=1";
+            BaseDatos d = new BaseDatos();
+            d.Conectar();
+            d.CrearComando(Qry);
+            DbDataReader datosItems = d.EjecutarConsulta();
+            while (datosItems.Read())
+            {
+                tc = Convert.ToDecimal   (datosItems["tc"].ToString());
+
+            }
+            datosItems.Close();
+            d.Desconectar();
+
+            return tc;
+        }
+
         public static PRODUCTOS seleccionarPRODUCTOS(string id_producto)
         {
+            //String Qry = @"SELECT id_cliente, nombre, direccion, cp, telefono, contacto, credito, rfc, precio,email FROM clientes WHERE nombre like @valorBuscado1 or rfc like @valorBuscado2";
+
             PRODUCTOS poducto = new PRODUCTOS();
-            String Qry = @"SELECT id, clave, descripcion, linea, unidadEntrada, minimo, maximo, moneda, existencias, costo, cveUnidad, precio1, precio2, precio3, foto, observaciones FROM   PRODUCTOS where clave=@id";
+            String Qry = @"SELECT id, clave, descripcion, linea, unidadEntrada, minimo, maximo, moneda, existencias, costo, cveUnidad, precio1, precio2, precio3, foto, observaciones,fk_proveedor,marca,ClaveUnidad,ClaveServicio,foliofactura,emision,diascredito
+FROM   productos where clave = @id";
             BaseDatos d = new BaseDatos();
             d.Conectar();
             d.CrearComando(Qry);
             d.AsignarParametroCadena("@id", id_producto);
+
             DbDataReader datosItems = d.EjecutarConsulta();
             while (datosItems.Read())
             {
                 poducto.id = Convert.ToInt32(datosItems["id"].ToString());
+                poducto.id_proveedor = Convert.ToInt32(datosItems["fk_proveedor"].ToString());
                 poducto.clave = datosItems["clave"].ToString();
                 poducto.descripcion = datosItems["descripcion"].ToString();
                 poducto.linea = datosItems["linea"].ToString();
@@ -259,16 +411,119 @@ namespace Modelo
                 poducto.precio3 = Convert.ToDecimal(datosItems["precio3"].ToString());
                 poducto.foto = datosItems["foto"].ToString();
                 poducto.observaciones = datosItems["observaciones"].ToString();
+                poducto.marca = datosItems["marca"].ToString();
+                poducto.claveServicio = datosItems["ClaveUnidad"].ToString();
+                poducto.claveUnidad = datosItems["ClaveServicio"].ToString();
+
             }
             datosItems.Close();
+            d.Desconectar();
+
             return poducto;
+        }
+
+        public static List<PRODUCTOS> seleccionarPRODUCTOSLst(string id_producto)
+        {
+            //String Qry = @"SELECT id_cliente, nombre, direccion, cp, telefono, contacto, credito, rfc, precio,email FROM clientes WHERE nombre like @valorBuscado1 or rfc like @valorBuscado2";
+
+            List<PRODUCTOS> _Productos = new List<PRODUCTOS>();
+            String Qry = @"SELECT id, clave, descripcion, linea, unidadEntrada, minimo, maximo, moneda, existencias, costo, cveUnidad, precio1, precio2, precio3, foto, observaciones,fk_proveedor,marca,ClaveUnidad,ClaveServicio
+FROM   productos where clave like  @valorBuscado1 OR descripcion like @valorBuscado2";
+            BaseDatos d = new BaseDatos();
+            d.Conectar();
+            d.CrearComando(Qry);
+
+            d.AsignarParametroCadena("@valorBuscado1", "%" + id_producto + "%");
+            d.AsignarParametroCadena("@valorBuscado2", "%" + id_producto + "%");
+            DbDataReader datosItems = d.EjecutarConsulta();
+            while (datosItems.Read())
+            {
+                PRODUCTOS poducto = new PRODUCTOS();
+                poducto.id = Convert.ToInt32(datosItems["id"].ToString());
+                poducto.id_proveedor = Convert.ToInt32(datosItems["fk_proveedor"].ToString());
+                poducto.clave = datosItems["clave"].ToString();
+                poducto.descripcion = datosItems["descripcion"].ToString();
+                poducto.linea = datosItems["linea"].ToString();
+                poducto.unidadentrada = datosItems["unidadentrada"].ToString();
+                poducto.minimo = Convert.ToInt32(datosItems["minimo"].ToString());
+                poducto.maximo = Convert.ToInt32(datosItems["maximo"].ToString());
+                poducto.moneda = datosItems["moneda"].ToString();
+                poducto.existencias = Convert.ToInt32(datosItems["existencias"].ToString());
+                poducto.costo = Convert.ToDecimal(datosItems["costo"].ToString());
+                poducto.cveunidad = Convert.ToInt32(datosItems["cveunidad"].ToString());
+                poducto.precio1 = Convert.ToDecimal(datosItems["precio1"].ToString());
+                poducto.precio2 = Convert.ToDecimal(datosItems["precio2"].ToString());
+                poducto.precio3 = Convert.ToDecimal(datosItems["precio3"].ToString());
+                poducto.foto = datosItems["foto"].ToString();
+                poducto.observaciones = datosItems["observaciones"].ToString();
+                poducto.marca = datosItems["marca"].ToString();
+                poducto.claveServicio = datosItems["ClaveUnidad"].ToString();
+                poducto.claveUnidad = datosItems["ClaveServicio"].ToString();
+                _Productos.Add(poducto);
+            }
+            datosItems.Close();
+            d.Desconectar();
+
+            return _Productos;
+        }
+
+        public static List<string> obtenerNumParte()
+        {
+            List<string> listPRODUCTOS = new List<string>();
+            String Qry = @"SELECT distinct(clave),descripcion from productos";
+            BaseDatos d = new BaseDatos();
+            d.Conectar();
+            d.CrearComando(Qry);
+            DbDataReader datosItems = d.EjecutarConsulta();
+            while (datosItems.Read())
+            {
+                listPRODUCTOS.Add(datosItems["clave"].ToString() + "-" + datosItems["descripcion"].ToString());
+            }
+            datosItems.Close();
+            d.Desconectar();
+
+            return listPRODUCTOS;
+        }
+
+
+        public static List<PRODUCTOS> seleccionarPRODUCTO(string id_producto)
+        {
+            List<PRODUCTOS> listPRODUCTOS = new List<PRODUCTOS>();
+            String Qry = @"SELECT clave, descripcion, minimo, maximo, existencias, precio1, precio2, precio3, observaciones,marca, linea
+                          FROM   productos where clave like @id or marca like @marca";
+            BaseDatos d = new BaseDatos();
+            d.Conectar();
+            d.CrearComando(Qry);
+            d.AsignarParametroCadena("@id", "%"+ id_producto + "%");
+            d.AsignarParametroCadena("@marca", "%" + id_producto + "%");
+            DbDataReader datosItems = d.EjecutarConsulta();
+            while (datosItems.Read())
+            {
+                PRODUCTOS objPRODUCTOS = new PRODUCTOS();
+                objPRODUCTOS.clave = datosItems["clave"].ToString();
+                objPRODUCTOS.descripcion = datosItems["descripcion"].ToString();
+                objPRODUCTOS.minimo = Convert.ToInt32(datosItems["minimo"].ToString());
+                objPRODUCTOS.maximo = Convert.ToInt32(datosItems["maximo"].ToString());
+                objPRODUCTOS.existencias = Convert.ToInt32(datosItems["existencias"].ToString());
+                objPRODUCTOS.precio1 = Convert.ToDecimal(datosItems["precio1"].ToString());
+                objPRODUCTOS.precio2 = Convert.ToDecimal(datosItems["precio2"].ToString());
+                objPRODUCTOS.precio3 = Convert.ToDecimal(datosItems["precio3"].ToString());
+                objPRODUCTOS.observaciones = datosItems["observaciones"].ToString();
+                objPRODUCTOS.marca = datosItems["marca"].ToString();
+                objPRODUCTOS.linea = datosItems["linea"].ToString();
+                listPRODUCTOS.Add(objPRODUCTOS);
+            }
+            datosItems.Close();
+            d.Desconectar();
+
+            return listPRODUCTOS;
         }
 
         public static List<PRODUCTOS>  seleccionarPRODUCTOS( )
         {
             List<PRODUCTOS> listPRODUCTOS = new List<PRODUCTOS>();
-            String Qry = @"SELECT id, clave, descripcion, linea, unidadEntrada, minimo, maximo, moneda, existencias, costo, cveUnidad, precio1, precio2, precio3, foto, observaciones 
-                          FROM   PRODUCTOS";
+            String Qry = @"SELECT id, clave, descripcion, linea, unidadEntrada, minimo, maximo, moneda, existencias, costo, cveUnidad, precio1, precio2, precio3, foto, observaciones,fk_proveedor,marca ,ClaveUnidad,ClaveServicio,foliofactura,emision,diascredito
+                          FROM   productos";
             BaseDatos d = new BaseDatos();
             d.Conectar();
             d.CrearComando(Qry);
@@ -292,9 +547,15 @@ namespace Modelo
 	            objPRODUCTOS.precio3 = Convert.ToDecimal(datosItems["precio3"].ToString());
 	            objPRODUCTOS.foto = datosItems["foto"].ToString();
 	            objPRODUCTOS.observaciones = datosItems["observaciones"].ToString();
+                objPRODUCTOS.marca = datosItems["marca"].ToString();
+                objPRODUCTOS.id_proveedor = Convert.ToInt32(datosItems["fk_proveedor"].ToString());
+                objPRODUCTOS.claveServicio = datosItems["ClaveUnidad"].ToString();
+                objPRODUCTOS.claveUnidad = datosItems["ClaveServicio"].ToString();
                 listPRODUCTOS.Add( objPRODUCTOS);
             }
             datosItems.Close();
+            d.Desconectar();
+
             return listPRODUCTOS; 
         }
     }

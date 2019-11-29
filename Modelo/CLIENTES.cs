@@ -14,7 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Common;
-using DCE05.Ejemplos.EstrellaUno.AccesoDatos;
+using AccesoDatos;
 namespace Modelo
 {
                             
@@ -28,11 +28,25 @@ namespace Modelo
         String		CONTACTO;
         Double		CREDITO;
         String		RFC;
+        String      Precio;
+        String      EMAIL;
+
+        public string email
+        {
+            get { return this.EMAIL; }
+            set { this.EMAIL = value; }
+        }
 
         public Int32 id_cliente
         {
             get { return this.ID_CLIENTE; }
             set { this.ID_CLIENTE = value;}
+        }
+
+        public String precio
+        {
+            get { return this.Precio; }
+            set { this.Precio = value; }
         }
 
         public String nombre
@@ -80,9 +94,9 @@ namespace Modelo
     }
     public static class metodos_CLIENTES
     {
-        public static void elimiarPRODUCTOS(Int32 id)
+        public static void elimiarCLIENTES(Int32 id)
         {
-            String Qry = @"DELETE FROM CLIENTES where id_cliente=@id";
+            String Qry = @"DELETE FROM clientes where id_cliente=@id";
             BaseDatos d = new BaseDatos();
             d.Conectar();
             d.CrearComando(Qry);
@@ -91,11 +105,11 @@ namespace Modelo
             d.Desconectar();
         }
 
-        public static void insertarCLIENTES(Int32 id_cliente, String nombre, String direccion, String cp, String telefono, String contacto,Double  credito, String rfc )
+        public static void insertarCLIENTES(Int32 id_cliente, String nombre, String direccion, String cp, String telefono, String contacto,Double  credito, String rfc,string precio,string email)
         {
-            String Qry =@"INSERT INTO CLIENTES(id_cliente,nombre,direccion,cp,telefono,contacto,credito,rfc)
+            String Qry = @"INSERT INTO clientes(id_cliente,nombre,direccion,cp,telefono,contacto,credito,rfc,precio,email)
             values(
-            @id_cliente,@nombre,@direccion,@cp,@telefono,@contacto,@credito,@rfc)";
+            @id_cliente,@nombre,@direccion,@cp,@telefono,@contacto,@credito,@rfc,@precio,@email)";
             BaseDatos d = new BaseDatos();
             d.Conectar();
             d.CrearComando(Qry);
@@ -107,13 +121,16 @@ namespace Modelo
             d.AsignarParametroCadena("@contacto",contacto);
             d.AsignarParametroDouble("@credito",credito);
             d.AsignarParametroCadena("@rfc",rfc);
-
+            d.AsignarParametroCadena("@precio", precio);
+            d.AsignarParametroCadena("@email", email);
             d.EjecutarComando();
+            d.Desconectar();
+
         }
-    
-        public static void actualizarCLIENTES(Int32 id_cliente, String nombre, String direccion, String cp, String telefono, String contacto, Int32 credito, String rfc )
+
+        public static void actualizarCLIENTES(Int32 id_cliente, String nombre, String direccion, String cp, String telefono, String contacto, Int32 credito, String rfc, string precio, string email)
         {
-            String Qry = "UPDATE CLIENTES SET nombre = @nombre, direccion = @direccion, cp = @cp, telefono = @telefono, contacto = @contacto, credito = @credito, rfc = @rfc WHERE id_cliente=@id_cliente";
+            String Qry = "UPDATE clientes SET nombre = @nombre, direccion = @direccion, cp = @cp, telefono = @telefono, contacto = @contacto, credito = @credito, rfc = @rfc, precio=@precio , email=@email  WHERE id_cliente=@id_cliente";
             BaseDatos d = new BaseDatos();
             d.Conectar();
             d.CrearComando(Qry);
@@ -125,31 +142,69 @@ namespace Modelo
             d.AsignarParametroCadena("@contacto",contacto);
             d.AsignarParametroEntero("@credito",credito);
             d.AsignarParametroCadena("@rfc",rfc);
-
+            d.AsignarParametroCadena("@precio", precio);
+            d.AsignarParametroCadena("@email", email);
             d.EjecutarComando();
             d.Desconectar();
         }
 
+        public static List<CLIENTES> seleccionarCLIENTES(string valorBuscado)
+        {
+            List<CLIENTES> listCLIENTES = new List<CLIENTES>();
+            String Qry = @"SELECT id_cliente, nombre, direccion, cp, telefono, contacto, credito, rfc, precio,email FROM clientes WHERE nombre like @valorBuscado1 or rfc like @valorBuscado2";
+            BaseDatos d = new BaseDatos();
+            d.Conectar();
+            d.CrearComando(Qry);
+            d.AsignarParametroCadena("@valorBuscado1", "%" + valorBuscado + "%");
+            d.AsignarParametroCadena("@valorBuscado2", "%" + valorBuscado + "%");
+            DbDataReader datosItems = d.EjecutarConsulta();
+            while (datosItems.Read())
+            {
+                CLIENTES objCLIENTES = new CLIENTES();
+                objCLIENTES.id_cliente = Convert.ToInt32(datosItems["id_cliente"].ToString());
+                objCLIENTES.nombre = datosItems["nombre"].ToString();
+                objCLIENTES.direccion = datosItems["direccion"].ToString();
+                objCLIENTES.cp = datosItems["cp"].ToString();
+                objCLIENTES.telefono = datosItems["telefono"].ToString();
+                objCLIENTES.contacto = datosItems["contacto"].ToString();
+                objCLIENTES.credito = Convert.ToDouble(datosItems["credito"].ToString());
+                objCLIENTES.rfc = datosItems["rfc"].ToString();
+                objCLIENTES.precio = datosItems["precio"].ToString();
+                objCLIENTES.email = datosItems["email"].ToString();
+                listCLIENTES.Add(objCLIENTES);
+            }
+            datosItems.Close();
+            d.Desconectar();
+            return listCLIENTES;
+        }
+
         public static List<CLIENTES>  seleccionarCLIENTES()
         {
-            List<CLIENTES> listCLIENTES = new List<CLIENTES>();String Qry =@"SELECT id_cliente, nombre, direccion, cp, telefono, contacto, credito, rfc FROM CLIENTES ";
+            List<CLIENTES> listCLIENTES = new List<CLIENTES>(); 
+            String Qry = @"SELECT id_cliente, nombre, direccion, cp, telefono, contacto, credito, rfc, precio,email FROM clientes ";
             BaseDatos d = new BaseDatos();
             d.Conectar();
             d.CrearComando(Qry);
             DbDataReader datosItems = d.EjecutarConsulta();
             while(datosItems.Read())
             {
-	            CLIENTES objCLIENTES = new CLIENTES();
-	            objCLIENTES.id_cliente = Convert.ToInt32(datosItems["id_cliente"].ToString());
-	            objCLIENTES.nombre = datosItems["nombre"].ToString();
-	            objCLIENTES.direccion = datosItems["direccion"].ToString();
-	            objCLIENTES.cp = datosItems["cp"].ToString();
-	            objCLIENTES.telefono = datosItems["telefono"].ToString();
-	            objCLIENTES.contacto = datosItems["contacto"].ToString();
-	            objCLIENTES.credito =  Convert.ToDouble(datosItems["credito"].ToString());
-	            objCLIENTES.rfc = datosItems["rfc"].ToString();
+	            CLIENTES objCLIENTES        =   new CLIENTES();
+	            objCLIENTES.id_cliente      =   Convert.ToInt32(datosItems["id_cliente"].ToString());
+	            objCLIENTES.nombre          =   datosItems["nombre"].ToString();
+	            objCLIENTES.direccion       =   datosItems["direccion"].ToString();
+	            objCLIENTES.cp              =   datosItems["cp"].ToString();
+	            objCLIENTES.telefono        =   datosItems["telefono"].ToString();
+	            objCLIENTES.contacto        =   datosItems["contacto"].ToString();
+	            objCLIENTES.credito         =   Convert.ToDouble(datosItems["credito"].ToString());
+	            objCLIENTES.rfc             =   datosItems["rfc"].ToString();
+                objCLIENTES.precio          =   datosItems["precio"].ToString();
+                objCLIENTES.email           =   datosItems["email"].ToString();
                 listCLIENTES.Add( objCLIENTES);
-            } return listCLIENTES; 
+            }
+            datosItems.Close();
+            d.Desconectar();
+
+            return listCLIENTES; 
         }
     }
 }

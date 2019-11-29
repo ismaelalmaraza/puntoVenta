@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E86DC7CB-982C-475C-8BFE-4C7B0407B52E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DRI</RootNamespace>
+    <AssemblyName>DRI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\poliza safmex\generadorXML_SAFMEX\generadorXML_SAFMEX\generadorXML_SAFMEX\bin\Debug\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Gma.QrCodeNet.Encoding, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\poliza safmex\generadorXML_SAFMEX\generadorXML_SAFMEX\generadorXML_SAFMEX\bin\Debug\Gma.QrCodeNet.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAlmacen.designer.cs">
+      <DependentUpon>frmAlmacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCargaMasivaProd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCargaMasivaProd.designer.cs">
+      <DependentUpon>frmCargaMasivaProd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCliente.designer.cs">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCompras.designer.cs">
+      <DependentUpon>frmCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCotizaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCotizaciones.designer.cs">
+      <DependentUpon>frmCotizaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFacturas.designer.cs">
+      <DependentUpon>frmFacturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMail.designer.cs">
+      <DependentUpon>frmMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNvoProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNvoProducto.designer.cs">
+      <DependentUpon>frmNvoProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProveedor.designer.cs">
+      <DependentUpon>frmProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuarios.designer.cs">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVenta.designer.cs">
+      <DependentUpon>frmVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuPrincipal.designer.cs">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="splash.designer.cs">
+      <DependentUpon>splash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Cancelacion\Reference.cs" />
+    <Compile Include="Web References\StampSOAP\Reference.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAlmacen.resx">
+      <DependentUpon>frmAlmacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCargaMasivaProd.resx">
+      <DependentUpon>frmCargaMasivaProd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCliente.resx">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCompras.resx">
+      <DependentUpon>frmCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCotizaciones.resx">
+      <DependentUpon>frmCotizaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFacturas.resx">
+      <DependentUpon>frmFacturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMail.resx">
+      <DependentUpon>frmMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNvoProducto.resx">
+      <DependentUpon>frmNvoProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProveedor.resx">
+      <DependentUpon>frmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVenta.resx">
+      <DependentUpon>frmVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuPrincipal.resx">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Splash.resx">
+      <DependentUpon>splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Web References\Cancelacion\Application.wsdl" />
+    <None Include="Web References\Cancelacion\cancelResponse1.datasource" />
+    <None Include="Web References\Cancelacion\cancel_signatureResponse1.datasource" />
+    <None Include="Web References\Cancelacion\get_receiptResponse1.datasource" />
+    <None Include="Web References\Cancelacion\out_cancelResponse1.datasource" />
+    <None Include="Web References\Cancelacion\query_pending_cancellationResponse1.datasource" />
+    <None Include="Web References\Cancelacion\Reference.map" />
+    <None Include="Web References\Cancelacion\sign_cancelResponse1.datasource" />
+    <None Include="Web References\StampSOAP\Application.wsdl" />
+    <None Include="Web References\StampSOAP\query_pendingResponse.datasource" />
+    <None Include="Web References\StampSOAP\quick_stampResponse.datasource" />
+    <None Include="Web References\StampSOAP\Reference.map" />
+    <None Include="Web References\StampSOAP\sign_stampResponse.datasource" />
+    <None Include="Web References\StampSOAP\stampedResponse.datasource" />
+    <None Include="Web References\StampSOAP\stampResponse.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logoDRi.ico" />
+    <Content Include="Resources\1057b27fa73e6f0.png" />
+    <Content Include="Resources\59224192-cierre-de-color-azul-arrugado-color-de-fondo-textura-de-cuero.jpg" />
+    <Content Include="Resources\barra.png" />
+    <Content Include="Resources\barra1.png" />
+    <Content Include="Resources\barra2.png" />
+    <Content Include="Resources\barra21.png" />
+    <Content Include="Resources\barra3.png" />
+    <Content Include="Resources\barra31.png" />
+    <Content Include="Resources\barra4.png" />
+    <Content Include="Resources\barra5.png" />
+    <Content Include="Resources\bg_forms_sec.png" />
+    <Content Include="Resources\blue-757258_960_720.jpg" />
+    <Content Include="Resources\blue-patterns-textures-1920x1200-wallpaper-640903.jpg" />
+    <Content Include="Resources\Blue-splash_-_Copy.png" />
+    <Content Include="Resources\Blue-splash_-_Copy1.png" />
+    <Content Include="Resources\botonera.png" />
+    <Content Include="Resources\btn_eliminar.png" />
+    <Content Include="Resources\btn_modificar.png" />
+    <Content Include="Resources\btn_registrar.png" />
+    <Content Include="Resources\btn_registrar2.png" />
+    <Content Include="Resources\button %281%29.png" />
+    <Content Include="Resources\button.png" />
+    <Content Include="Resources\cabecera.png" />
+    <Content Include="Resources\cfc-splash-2.png" />
+    <Content Include="Resources\cfc-splash-21.png" />
+    <Content Include="Resources\clientes.png" />
+    <Content Include="Resources\clientes2.png" />
+    <Content Include="Resources\compras.png" />
+    <Content Include="Resources\compras2.png" />
+    <Content Include="Resources\conf.png" />
+    <Content Include="Resources\cuadro.png" />
+    <Content Include="Resources\fondo-de-lienzo-blanco_1053-239.jpg" />
+    <Content Include="Resources\fondo-de-textura-de-lino-gris_1053-253.jpg" />
+    <Content Include="Resources\fondo.jpg" />
+    <Content Include="Resources\if_add-notes_46774.png" />
+    <Content Include="Resources\if_advantage_sale_1034365.png" />
+    <Content Include="Resources\if_agt_family-off_3815.png" />
+    <Content Include="Resources\if_application-vnd.ms-excel_24744.png" />
+    <Content Include="Resources\if_bookmark_46780.png" />
+    <Content Include="Resources\if_box_61760.png" />
+    <Content Include="Resources\if_cancel_46786 %281%29.png" />
+    <Content Include="Resources\if_cancel_46786.png" />
+    <Content Include="Resources\if_cog_edit_35876.png" />
+    <Content Include="Resources\if_contact-new_23203.png" />
+    <Content Include="Resources\if_delete-notes_46793.png" />
+    <Content Include="Resources\if_diagram_v2-17_37137.png" />
+    <Content Include="Resources\if_edit-notes_46798.png" />
+    <Content Include="Resources\if_floppy_285657.png" />
+    <Content Include="Resources\if_gtk-dialog-error_48094.png" />
+    <Content Include="Resources\if_gtk-go-back-rtl_48101.png" />
+    <Content Include="Resources\if_gtk-go-down_48102.png" />
+    <Content Include="Resources\if_icon-45-note-list_315167.png" />
+    <Content Include="Resources\if_kservices_18068.png" />
+    <Content Include="Resources\if_provider_45069.png" />
+    <Content Include="Resources\if_sale1_91828.png" />
+    <Content Include="Resources\if_Sales-by-Payment-Method-rep_49616 %281%29.png" />
+    <Content Include="Resources\if_Sales-by-Payment-Method-rep_49616 %281%291.png" />
+    <Content Include="Resources\if_save_46830 %281%29.png" />
+    <Content Include="Resources\if_save_46830.png" />
+    <Content Include="Resources\if_search_46834.png" />
+    <Content Include="Resources\if_shopping_basket_2_40839.png" />
+    <Content Include="Resources\if_trash_46839.png" />
+    <Content Include="Resources\if_User Orange_41329.png" />
+    <Content Include="Resources\images.jpg" />
+    <Content Include="Resources\images.png" />
+    <Content Include="Resources\logoDRi.png" />
+    <Content Include="Resources\pie.jpg" />
+    <Content Include="Resources\proveedor.png" />
+    <Content Include="Resources\proveedor2.png" />
+    <Content Include="Resources\Sin título.png" />
+    <Content Include="Resources\skin_2b.jpg" />
+    <Content Include="Resources\ventas.png" />
+    <Content Include="Resources\ventas1.png" />
+    <Content Include="Resources\ventas2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{f73df0ac-36c3-4a9e-988a-4b8a1140f938}</Project>
+      <Name>Modelo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QrCBB\QrCBB.vbproj">
+      <Project>{a96b89e3-cd65-4aef-8b4b-f2937edc4fad}</Project>
+      <Name>QrCBB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

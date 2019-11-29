@@ -30,25 +30,128 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>..\Tutorial5\bin\Debug\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Gma.QrCodeNet.Encoding">
+      <HintPath>..\Tutorial5\bin\Debug\Gma.QrCodeNet.Encoding.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="ThoughtWorks.QRCode">
+      <HintPath>..\..\..\..\..\Librería\ThoughtWorks.QRCode.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Catalogos\c_ClaveProdServ.cs" />
+    <Compile Include="Catalogos\c_ClaveUnidad.cs" />
+    <Compile Include="Catalogos\c_CodigoPostal.cs" />
+    <Compile Include="Catalogos\c_FormaPago.cs" />
+    <Compile Include="Catalogos\c_Impuesto.cs" />
+    <Compile Include="Catalogos\c_MetodoPago.cs" />
+    <Compile Include="Catalogos\c_Moneda.cs" />
+    <Compile Include="Catalogos\c_Pais.cs" />
+    <Compile Include="Catalogos\c_RegimenFiscal.cs" />
+    <Compile Include="Catalogos\c_TipoDeComprobante.cs" />
+    <Compile Include="Catalogos\c_TipoFactor.cs" />
+    <Compile Include="Catalogos\c_TipoRelacion.cs" />
+    <Compile Include="Catalogos\c_UsoCFDI.cs" />
+    <Compile Include="cfdv33.cs" />
     <Compile Include="CLIENTES.cs" />
+    <Compile Include="C_CLAVESERVICIO.cs" />
+    <Compile Include="C_CVEUNIDAD.cs" />
+    <Compile Include="C_FORMAPAGO.cs" />
+    <Compile Include="C_METODOPAGO.cs" />
+    <Compile Include="C_MONEDA.cs" />
+    <Compile Include="DETALLEVENTA.cs" />
+    <Compile Include="factura.cs" />
+    <Compile Include="FacturaComplementoPago.cs" />
+    <Compile Include="MAIL.cs" />
+    <Compile Include="marca.cs" />
+    <Compile Include="Pagos10.cs" />
     <Compile Include="PRODUCTOS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="PROVEEDORES.cs" />
+    <Compile Include="QrCBB.cs" />
+    <Compile Include="SERIE.cs" />
+    <Compile Include="TimbreFiscalDigital.cs" />
+    <Compile Include="USUARIO.cs" />
+    <Compile Include="VENTA.cs" />
+    <Compile Include="VERSION.cs" />
+    <Compile Include="Web References\StampSOAP\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj">
       <Project>{f768e9e0-b0a5-48fb-bf1f-b9381481c266}</Project>
       <Name>AccesoDatos</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://facturacion.finkok.com/servicios/soap/stamp.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\StampSOAP\</RelPath>
+      <UpdateFromURL>https://facturacion.finkok.com/servicios/soap/stamp.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Modelo_StampSOAP_StampSOAP</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\StampSOAP\Application.wsdl" />
+    <None Include="Web References\StampSOAP\query_pendingResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\StampSOAP\quick_stampResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\StampSOAP\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\StampSOAP\sign_stampResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\StampSOAP\stampedResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\StampSOAP\stampResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

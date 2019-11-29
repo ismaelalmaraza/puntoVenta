@@ -14,7 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Common;
-using DCE05.Ejemplos.EstrellaUno.AccesoDatos;
+using AccesoDatos;
 namespace Modelo
 {
                             
@@ -28,7 +28,7 @@ namespace Modelo
 	    String	EMAIL;
 	    String	RFC;
 
-	    public Int32 id_proveedor
+        public Int32 id_proveedor
 	    {
 		    get { return this.ID_PROVEEDOR; }
 		    set { this.ID_PROVEEDOR = value;}
@@ -75,11 +75,11 @@ namespace Modelo
     public static class metodos_PROVEEDORES
     {
 
-        public void insertarPROVEEDORES(Int32 id_proveedor, String nombre, String direccion, String telefono, String contacto, String email, String rfc)
+        public static void insertarPROVEEDORES(Int32 id_proveedor, String nombre, String direccion, String telefono, String contacto, String email, String rfc)
 	        {
-	        String Qry =@"INSERT INTO PROVEEDORES(id_proveedor,nombre,direccion,telefono,contacto,email,rfc)
+	        String Qry = @"INSERT INTO proveedores(id_proveedor,nombre,direccion,telefono,contacto,email,rfc,cp)
         values(
-        @id_proveedor,@nombre,@direccion,@telefono,@contacto,@email,@rfc,)";
+        @id_proveedor,@nombre,@direccion,@telefono,@contacto,@email,@rfc,'')";
 	        BaseDatos d = new BaseDatos();
 	        d.Conectar();
 	        d.CrearComando(Qry);
@@ -91,12 +91,14 @@ namespace Modelo
 	        d.AsignarParametroCadena("@email",email);
 	        d.AsignarParametroCadena("@rfc",rfc);
 
-	        d.EjecutarComando();
+            d.EjecutarComando();
+            d.Desconectar();
+
         }
 
-        public void actualizarPROVEEDORES(Int32 id_proveedor, String nombre, String direccion, String telefono, String contacto, String email, String rfc)
+        public static void actualizarPROVEEDORES(Int32 id_proveedor, String nombre, String direccion, String telefono, String contacto, String email, String rfc)
         {
-	        String Qry ="UPDATE PROVEEDORES SET id_proveedor = @id_proveedor, nombre = @nombre, direccion = @direccion, telefono = @telefono, contacto = @contacto, email = @email, rfc = @rfc WHERE ID=@ID";
+            String Qry = "UPDATE proveedores SET  nombre = @nombre, direccion = @direccion, telefono = @telefono, contacto = @contacto, email = @email, rfc = @rfc WHERE id_proveedor=@id_proveedor";
 	        BaseDatos d = new BaseDatos();
 	        d.Conectar();
 	        d.CrearComando(Qry);
@@ -109,12 +111,14 @@ namespace Modelo
 	        d.AsignarParametroCadena("@rfc",rfc);
 
 	        d.EjecutarComando();
+            d.Desconectar();
+
         }
 
-        public  List<PROVEEDORES>  seleccionarPROVEEDORES(Int32 id_proveedor, String nombre, String direccion, String telefono, String contacto, String email, String rfc)
+        public static List<PROVEEDORES> seleccionarPROVEEDORES()
         {
 	        List<PROVEEDORES> listPROVEEDORES = new List<PROVEEDORES>();
-	        String Qry =@"SELECT id_proveedor, nombre, direccion, telefono, contacto, email, rfc FROM PROVEEDORES WHERE ID=@ID";
+	        String Qry =@"SELECT id_proveedor, nombre, direccion, telefono, contacto, email, rfc FROM proveedores order by nombre ";
 	        BaseDatos d = new BaseDatos();
 	        d.Conectar();
 	        d.CrearComando(Qry);
@@ -131,7 +135,35 @@ namespace Modelo
 		        objPROVEEDORES.rfc = datosItems["rfc"].ToString();
 		        listPROVEEDORES.Add( objPROVEEDORES);
 	        }
-	         return listPROVEEDORES; 
+            d.Desconectar();
+            datosItems.Close();
+            return listPROVEEDORES; 
+        }
+
+        public static List<PROVEEDORES> seleccionarPROVEEDORES(int id)
+        {
+            List<PROVEEDORES> listPROVEEDORES = new List<PROVEEDORES>();
+            String Qry = @"SELECT id_proveedor, nombre, direccion, telefono, contacto, email, rfc FROM proveedores WHERE id_proveedor=@id";
+            BaseDatos d = new BaseDatos();
+            d.Conectar();
+            d.CrearComando(Qry);
+            d.AsignarParametroEntero("@id", id);
+            DbDataReader datosItems = d.EjecutarConsulta();
+            while (datosItems.Read())
+            {
+                PROVEEDORES objPROVEEDORES = new PROVEEDORES();
+                objPROVEEDORES.id_proveedor = Convert.ToInt32(datosItems["id_proveedor"].ToString());
+                objPROVEEDORES.nombre = datosItems["nombre"].ToString();
+                objPROVEEDORES.direccion = datosItems["direccion"].ToString();
+                objPROVEEDORES.telefono = datosItems["telefono"].ToString();
+                objPROVEEDORES.contacto = datosItems["contacto"].ToString();
+                objPROVEEDORES.email = datosItems["email"].ToString();
+                objPROVEEDORES.rfc = datosItems["rfc"].ToString();
+                listPROVEEDORES.Add(objPROVEEDORES);
+            }
+            datosItems.Close();
+            d.Desconectar();
+            return listPROVEEDORES;
         }
     }
 }

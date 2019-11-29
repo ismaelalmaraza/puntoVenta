@@ -5,7 +5,7 @@ using System.Data;
 using System.Data.Common;
 using System.Configuration;
 
-namespace DCE05.Ejemplos.EstrellaUno.AccesoDatos {
+namespace AccesoDatos {
 
     /// <summary>
     /// Representa la base de datos en el sistema.
@@ -27,32 +27,12 @@ namespace DCE05.Ejemplos.EstrellaUno.AccesoDatos {
             Configurar();
         }
 
-        /// <summary>
-        /// Configura el acceso a la base de datos para su utilización.
-        /// </summary>
-        /// <exception cref="BaseDatosException">Si existe un error al cargar la configuración.</exception>
-        // private void Configurar() {
-        //try {
-        //string proveedor = "System.Data.SqlClient";
-        //this.cadenaConexion= @"Server = localhost; Database = transporte2; User Id = sa;
-        //Password = Carrillo2017;";
-        //this.cadenaConexion = "Data Source=DESKTOP-A30CN7B;Initial Catalog=transporte2;Integrated Security=True";
-        //BaseDatos.factory = DbProviderFactories.GetFactory(proveedor);
-        //} catch (ConfigurationException ex) {
-        //throw new BaseDatosException("Error al cargar la configuración del acceso a datos.", ex);
-        //} 
-        //}
-
         private void Configurar()
         {
             try
             {
-                //string proveedor = "System.Data.SqlClient";
-
-                string proveedor = "MySql.Data.MySqlClient";
-                this.cadenaConexion = @"Server = localhost; Database = dri ; User Id = root; Password =;";
-                //this.cadenaConexion = @"Server =23.229.205.0; Database = transportesilclabs ; User Id = carrillo2017; Password = Carrillo2017;";
-
+                string proveedor = ConfigurationManager.AppSettings.Get("PROVEEDOR_ADONET");
+                this.cadenaConexion = ConfigurationManager.AppSettings.Get("CADENA_CONEXION");
                 BaseDatos.factory = DbProviderFactories.GetFactory(proveedor);
             }
             catch (ConfigurationException ex)
@@ -197,7 +177,8 @@ namespace DCE05.Ejemplos.EstrellaUno.AccesoDatos {
         /// <exception cref="BaseDatosException">Si ocurre un error al ejecutar el comando.</exception>
 		public DbDataReader EjecutarConsulta()
 		{
-            return this.comando.ExecuteReader();
+            DbDataReader dr = this.comando.ExecuteReader();
+            return dr;
 		}
 
 		/// <summary>
